@@ -1,0 +1,33 @@
+// Generic Search Function using Iterators & Templates
+#include <iostream>
+#include <list>
+using namespace std;
+
+template <class forwardIterator,class T>
+forwardIterator search(forwardIterator begin,forwardIterator end,T key)
+{
+    while(begin!=end)
+    {
+        if(*begin==key)
+        {
+            return begin;
+        }
+        begin++;
+    }
+    return end;
+}
+
+int main()
+{
+    list<int> l;
+    l.push_back(1);
+    l.push_back(2);
+    l.push_back(3);
+    l.push_back(4);
+    auto it = search(l.begin(),l.end(),4);
+    if(it==l.end())
+    {
+        cout<<"not found";
+    }
+    cout<<*it;
+}
