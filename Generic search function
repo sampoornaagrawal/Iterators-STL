@@ -1,0 +1,24 @@
+/* Following is an example of a generic search function using standard template library(STL),
+a generic func. is one which allow all types of data containers eg. int,float,char etc.
+*/
+
+#include <iostream>
+using namespace std;
+
+// functionn def.
+template <typename T>
+int search(T array[],int size,T key)
+{
+        for(int i=0;i<size;i++)
+        {
+            if(array[i]==key){return i;}
+        }
+        return 0;
+}
+
+int main() {
+    char array1[]={'a','b','c','d','e'};
+    int size = sizeof(array1)/ sizeof(char);
+    char key = 'c';
+    cout<<search(array1,size,key);
+}
